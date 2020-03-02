@@ -1,0 +1,205 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import "~ag-grid-community/dist/styles/ag-grid.css";
+@import "~ag-grid-community/dist/styles/ag-theme-balham.css";
+@import "~ag-grid-community/dist/styles/ag-theme-material.css";
+@import "~font-awesome/css/font-awesome.min.css";
+
+
+$primaryClr:#632A7E;
+$secondryClr: white;
+$secondryClrAlpha: #A13E9766;
+$standardFontClr: #10a8b9;
+$topbarClr: #f89325;
+
+.topbar {
+    background-color: $topbarClr !important;
+    color: $secondryClr !important;
+}
+
+.ag-theme-material .ag-header-cell {
+    line-height: 10px;
+    text-transform: uppercase;
+    background-color: $secondryClr;
+    font-family: 'SofiaProLight';
+    align-items: center;
+    font-weight: 600;
+}
+.ag-theme-material .ag-header-group-cell:not(.ag-column-resizing) + .ag-header-group-cell:hover, .ag-theme-material .ag-header-group-cell:not(.ag-column-resizing) +
+ .ag-header-group-cell.ag-column-resizing, .ag-theme-material .ag-header-cell:not(.ag-column-resizing) + .ag-header-cell:hover,
+  .ag-theme-material .ag-header-cell:not(.ag-column-resizing) + .ag-header-cell.ag-column-resizing, .ag-theme-material .ag-header-group-cell:first-of-type:hover,
+   .ag-theme-material .ag-header-group-cell:first-of-type.ag-column-resizing,
+ .ag-theme-material .ag-header-cell:first-of-type:hover, .ag-theme-material .ag-header-cell:first-of-type.ag-column-resizing{
+    background-color: $secondryClr;
+}
+.ag-theme-material .ag-header{
+    color: $standardFontClr;
+}
+.ag-theme-material .ag-floating-filter-full-body {
+    height: inherit;
+}
+.ag-theme-material .ag-floating-filter-full-body input{
+    color: $standardFontClr;
+    border-bottom: 2px solid $standardFontClr;
+
+    // margin-top: inherit;
+    padding-bottom: 0px;
+    // height: 35px;
+    // position: relative;
+}
+.ag-theme-material .ag-floating-filter-full-body input:focus {
+    border-bottom: 2px solid #e2e2e2;
+}
+.fa {
+    margin-right: 6px;
+    color: #438ac9;
+}
+
+.mat-raised-button.mat-primary{
+    height:30px;
+    width:auto;
+    background-color: $topbarClr;
+}
+
+.page-title {
+    font-size: 24px;
+    padding-left: 10px;
+    border-left: 2px solid $topbarClr;
+    font-family: 'SofiaProLight';
+    margin-left: 6px;
+ 
+  }
+
+.ui-menubar {
+    position: absolute;
+    left: 85px;
+    top: 6px;
+    background-color: $topbarClr !important;
+    border: none !important;
+}
+.ui-menubar .ui-menuitem.ui-menuitem > .ui-menuitem-link
+{
+    padding: .3125em 0.900em; 
+
+}
+.ui-menubar .ui-menubar-root-list > .ui-menuitem > .ui-menuitem-link, 
+.ui-menubar .ui-menuitem.ui-menuitem-active > .ui-menuitem-link {
+    padding: .3125em 0.900em; 
+    background: $topbarClr !important;
+
+    .ui-menuitem-text   {
+        color: $secondryClr !important;
+    }
+
+    .ui-submenu-icon {
+        color: $secondryClr !important;
+    }
+}
+.card-title {
+    padding-left: 22px;
+    font-family: 'SofiaProLight';
+    color: $topbarClr;
+    font-size: 18px;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
+    margin-top: -7px;
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-flex
+{
+	//mat-select are doing their own thing and gain extra-height
+	height: 3em;
+	.mat-select
+	{
+        // margin-top: 16px;
+	}
+}
+
+.ag-theme-material .ag-icon-checkbox-checked {
+    color: $topbarClr !important;
+}
+
+// cus-search // 
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button {
+	display: none; 
+}
+input[type=search] {
+	-webkit-appearance: textfield;
+	-webkit-box-sizing: content-box;
+	font-family: inherit;
+	font-size: 100%;
+}
+input[type=search] {
+	background: url(/assets/images/search.svg) no-repeat 0px center;
+	border: none;
+	padding: 9px 10px 9px 32px;
+	width: 55px;	
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	transition: all .5s;
+}
+input[type=search]:focus {
+	width: 130px;
+	background-color: #fff;
+	border-color: rgb(248, 147, 37);
+	-webkit-box-shadow: 0 0 5px rgb(248, 147, 37);
+	-moz-box-shadow: 0 0 5px rgb(248, 147, 37);
+	box-shadow: 0 0 5px rgb(248, 147, 37);
+}
+#cus-search input[type=search] {
+	width: 15px;
+	padding-left: 10px;
+	color: transparent;
+    cursor: pointer;
+    float: right;
+    margin-top: 10px;
+}
+#cus-search input[type=search]:hover {
+	background-color: #fff;
+}
+#cus-search input[type=search]:focus {
+	width: 130px;
+	padding-left: 32px;
+	color: #000;
+	background-color: #fff;
+    cursor: auto;
+}
+#cus-search input:-moz-placeholder {
+	color: transparent;
+}
+#cus-search input::-webkit-input-placeholder {
+	color: transparent;
+}
+
+// cus-search-ends //
+
+.mat-datepicker-toggle {
+    color:#f89325;
+}
+::ng-deep .mat-datepicker-content .mat-calendar-next-button ,
+::ng-deep  .mat-datepicker-content .mat-calendar-previous-button {
+    color:#f89325;
+}
+.mat-calendar-body-today:not(.mat-calendar-body-selected) {
+    color:#f89325;
+}
+.mat-calendar-body-selected { 
+    background-color: #f89325;
+}
+::ng-deep .mat-select-arrow {
+    color:#f89325;
+}
+
+*:focus {
+    outline: 0 !important;
+}
+::ng-deep .mat-menu-content:not(:empty) {
+    padding-top: 0px; 
+    padding-bottom: 0px;
+}
+
+.mat-menu-item:hover{
+    background-color: #f89325;
+    color: #ffffff;
+  }

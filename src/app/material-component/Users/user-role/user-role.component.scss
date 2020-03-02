@@ -1,0 +1,33 @@
+@import '../../../../styles.scss';
+
+
+.example-full-width {
+    width: 20rem;
+  }
+.col-2{
+    margin-top:17px;
+}
+.permission{
+  color: rgb(39, 178, 233);
+}
+.mat-form-field--inline {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.mat-form-field--inline .mat-form-field {
+  display: inline-block;
+  width: 100%;
+  vertical-align: middle;
+}
+
+.mat-form-field--inline .mat-form-field:nth-child(1) {
+  margin-right: 10px;
+}
+.mat-form-field--inline .mat-form-field:nth-child(2) {
+  margin-right: 10px;
+}
+::ng-deep .mat-pseudo-checkbox.mat-pseudo-checkbox-checked, .mat-accent.mat-pseudo-checkbox-checked {
+  background: #f89325;
+}

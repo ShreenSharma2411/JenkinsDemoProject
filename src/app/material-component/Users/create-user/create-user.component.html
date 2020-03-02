@@ -1,0 +1,113 @@
+<div>
+        <div class="col-2">
+                <h3 class="page-title">{{pageTitle}}</h3>
+        </div>
+</div>
+<form [formGroup]="userForm">
+        <div fxLayout="row">
+                <div fxFlex.gt-sm="100%">
+                        <mat-card>
+                                <mat-card-content>
+                                        <li class="mat-form-field--inline">
+                                                <mat-form-field appearance="outline">
+                                                        <mat-label>First Name</mat-label>
+                                                        <input matInput placeholder="First Name"  [formControl]="userName"  required>
+                                                        <mat-error>Required</mat-error>
+                                                        <!-- <mat-error *ngIf="firstName.invalid">{{ErrorMessage()}}</mat-error>
+                                                        <mat-error *ngIf="firstName.hasError('required')">
+                                                                First Name is <strong>required</strong></mat-error> -->
+                                                </mat-form-field>
+                                                <mat-form-field appearance="outline">
+                                                        <mat-label>Last Name</mat-label>
+                                                        <input matInput placeholder="Last Name"  [formControl]="userName" >
+                                                       <!--  <mat-error *ngIf="lastName.invalid">{{ErrMessage()}}</mat-error>
+                                                        <mat-error *ngIf="lastName.hasError('required')">
+                                                                Last Name is <strong>required</strong></mat-error> -->
+                                                </mat-form-field>
+                                        </li>
+                                        <li class="mat-form-field--inline">
+                                                <mat-form-field appearance="outline">
+                                                        <mat-label>Gender</mat-label>
+                                                        <!-- <input [formControl]= "gender"> -->
+                                                       <!--  <mat-error *ngIf="gender.hasError('required')">
+                                                                Gender is <strong>required</strong></mat-error> -->
+                                                                <mat-error>Required</mat-error>
+                                                        <mat-select disableRipple    required>
+                                                               
+                                                                <mat-option value="1">Male</mat-option>
+                                                                <mat-option value="2">Female</mat-option>
+                                                        </mat-select>
+                                                </mat-form-field>
+                                                <mat-form-field appearance="outline">
+                                                        <mat-label>Mobile Number</mat-label>
+                                                        <input matInput placeholder="Mobile No"  [formControl]="userMobile"  required>
+                                                        <mat-error>Required</mat-error>
+                                                      <!--   <mat-error *ngIf="phnNo.invalid">{{ErrorMsg()}}</mat-error>
+                                                        <mat-error *ngIf="phnNo.hasError('required')">
+                                                                Mobile Number is <strong>required</strong></mat-error> -->
+                                                </mat-form-field>
+                                        </li>
+                                        <li class="mat-form-field--inline">
+                                                <mat-form-field appearance="outline">
+                                                        <mat-label>Email</mat-label>
+                                                        <input matInput placeholder="Email Id"  [formControl]="userEmail"  required>
+                                                        <mat-error>Required</mat-error>
+                                                        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                                                       <!--  <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+                                                                Please enter a valid email address
+                                                        </mat-error> -->
+                                                        <!-- <mat-error *ngIf="email.hasError('required')">
+                                                                Email is <strong>required</strong>
+                                                        </mat-error> -->
+                                                </mat-form-field>
+        <!--                                         <mat-form-field appearance="outline">
+                                                        <mat-label>Role</mat-label>
+                                                        <mat-select  [formControl]="assetClassName"  disableRipple>
+                                                                <mat-option value="1">Admin</mat-option>
+                                                                <mat-option value="2">Supervisor</mat-option>
+                                                                <mat-option value="3">Technician</mat-option>
+                                                        </mat-select>
+                                                </mat-form-field> -->
+                                        </li>
+                                        <li class="mat-form-field--inline">
+                                                <mat-form-field appearance="outline">
+                                                        <mat-label>Password</mat-label>
+                                                        <input matInput placeholder="Password" [type]="hidePassword ? 'password' : 'text'"   [formControl]="userPassword"  required>
+                                                        <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword"
+                                                                [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+                                                                <mat-icon>{{hidePassword ? 'visibility_off' :
+                                                                        'visibility'}}
+                                                                </mat-icon>
+                                                        </button>
+                                                        <mat-error>Required</mat-error>
+                                                </mat-form-field>
+                                                <mat-form-field appearance="outline">
+                                                        <mat-label>Confirm Password</mat-label>
+                                                        <input matInput placeholder="Confirm Password" [type]="hideConfirmPassword ? 'password' : 'text'"
+                                                            (focusout)="focusOutFunction()"  [formControl]="confPassword"      required>
+                                                        <button mat-icon-button matSuffix (click)="hideConfirmPassword = !hideConfirmPassword"
+                                                                [attr.aria-label]="'Hide confirmPassword'"
+                                                                [attr.aria-pressed]="hideConfirmPassword">
+                                                                <mat-icon>
+                                                                        {{hideConfirmPassword ? 'visibility_off' :
+                                                                        'visibility'}}
+                                                                </mat-icon>
+                                                        </button>
+                                                        <mat-error>Required</mat-error>
+                                                </mat-form-field>
+                                        </li>
+
+                                        <li class="mat-form-field--inline">
+                                                <div class="col-sm-12">
+                                                        <div class="text-right">
+                                                                <br />
+                                                                <button mat-raised-button color="primary" (click)="createNewUser()">Submit</button>
+                                                        </div>
+                                                </div>
+                                        </li>
+                                </mat-card-content>
+                        </mat-card>
+                </div>
+
+        </div>
+</form>

@@ -1,0 +1,25 @@
+@import '../../../../styles.scss';
+
+.example-full-width {
+  width: 20rem;
+}
+.col-2{
+  margin-top:17px;
+}
+:host /deep/ .ag-theme-material .ag-header-cell-resize::after {
+  border-right: 1px solid #cecece;
+  box-sizing: content-box;
+  content: "resize";
+  display: block;
+  height: 24px;
+  overflow: hidden;
+  text-indent: 8px;
+  width: 8px;
+}
+.mat-form-field-infix {
+  margin-top: 15px;
+}
+
+.mat-raised-button.mat-primary{
+  margin-left: 40px;
+}

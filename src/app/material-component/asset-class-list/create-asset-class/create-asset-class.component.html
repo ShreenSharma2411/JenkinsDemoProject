@@ -1,0 +1,42 @@
+<div class="modal-content" data-backdrop="static" data-keyboard="false">
+
+    <div class="modal-header">
+        <h5 class="modal-title">{{modalHeader}}</h5>
+        <button class="close" aria-label="Close" (click)="closeModal()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="row error" *ngIf="errorMsg">
+        <div class="alert alert-danger alert-dismissable offset-md-2 col-8">
+            <a class="close" aria-label="close" (click)="errorMsg=''">&times;</a>
+            <strong>Danger!</strong> &emsp; {{errorMsg}}
+        </div>
+    </div>&nbsp;
+    <form [formGroup]="assetClassListFormGroup">
+    <div fxLayout="row">
+            
+        <div fxFlex.gt-sm="100%">
+            <li class="mat-form-field--inline">
+                <mat-form-field appearance="outline">
+                    <mat-label>Asset Class Name</mat-label>
+                    <!-- <input matInput placeholder="Asset Name"> -->
+                    <input matInput placeholder="Asset Name" [formControl]="assetClassName" required>
+                    <!-- <mat-error *ngIf="assetClassName.hasError('required')">
+                                    Asset Class Name is <strong>required</strong></mat-error> -->
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Description</mat-label>
+                    <input matInput placeholder="Asset Name"  [formControl]="assetClassDesc">
+                </mat-form-field>
+            </li>
+        </div>
+        
+    </div>
+</form>
+    <div class="modal-footer content">
+        <button class="btn btn-primary" type="submit" (click)="submitForm()">{{actionBtnLabel}}</button>
+        <button class="btn btn-primary" type="button" (click)="closeModal()">Cancel</button>
+    </div>
+
+</div>

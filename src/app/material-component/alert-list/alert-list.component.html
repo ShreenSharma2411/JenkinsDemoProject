@@ -1,0 +1,121 @@
+<div>
+    <div class="col-2">
+        <h3 class="page-title">{{titlePage}}</h3>
+        <br />
+    </div>
+    <div class="filter">
+        <button class="btn btn-outline-info btn-sm" (click)="filterButton()">{{filterButtonName}}</button>
+    </div>
+    <div *ngIf="showFilterPanel">
+        <div>
+            <div fxLayout="row">
+                <div fxFlex.gt-sm="100%">
+                    <mat-card>
+                        <mat-card-content>
+                            <li class="mat-form-field--inline">
+                                <mat-form-field class="assetName">
+                                    <mat-label>Asset Name</mat-label>
+                                    <mat-select>
+                                        <mat-option value="1">Pump-001</mat-option>
+                                        <mat-option value="2">Pump-002</mat-option>
+                                        <mat-option value="3">Hydraulic Pump-005</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+
+                                <mat-form-field class="fromDate">
+                                    <input matInput [matDatepicker]="picker" placeholder="From Date">
+                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                                </mat-form-field>
+                                <mat-form-field class="toDate">
+                                    <input matInput [matDatepicker]="pick" placeholder="To Date">
+                                    <mat-datepicker-toggle matSuffix [for]="pick"></mat-datepicker-toggle>
+                                    <mat-datepicker #pick></mat-datepicker>
+                                </mat-form-field>
+                                <mat-form-field class="assetName">
+                                    <mat-label>Assigned To</mat-label>
+                                    <mat-select>
+                                        <mat-option value="1">Shubham</mat-option>
+                                        <mat-option value="2">Pushpak</mat-option>
+                                        <mat-option value="3">Vishal</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <mat-form-field class="assetName">
+                                    <mat-label>Status</mat-label>
+                                    <mat-select>
+                                        <mat-option value="1">Open</mat-option>
+                                        <mat-option value="2">Assigned</mat-option>
+                                        <mat-option value="3">Dismissed</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </li>
+                            <li class="mat-form-field--inline">
+                                <div class="col-sm-12">
+                                    <div class="text-right">
+                                        <div class="btn">
+                                            <button mat-button color="warn" (click)="clearFilter()">
+                                                <mat-icon>delete_sweep</mat-icon> Clear
+                                            </button>
+                                        </div>
+                                        <div class="btn">
+                                            <button mat-button color="accent" (click)="searchFilter()">
+                                                <mat-icon>search</mat-icon> Search
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" *ngIf="errorMessage">
+    <div class="col-md-12">
+        <div id="error" class="alert alert-danger">
+            <span>{{errorMessage}}</span>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+        <p></p>
+        <div class="card-title">Results</div>
+    </div>
+
+    <div class="offset-6 col-sm-2">
+        <div id="cus-search">
+            <input type="search" placeholder="Search" id="search" [(ngModel)]="searchString" (keyup)="onSearch()">
+        </div>
+    </div>
+    <div class="col-sm-2">
+        <p></p>
+        <button mat-raised-button color="primary" [matMenuTriggerFor]="menu"> Actions <mat-icon>more_horiz</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="performAction('assign')">Assign</button>
+            <button mat-menu-item (click)="performAction('dismiss')">Dismiss</button>
+        </mat-menu>
+    </div>
+</div>
+<div fxLayout="row">
+    <div fxFlex.gt-sm="100%">
+        <mat-card>
+            <mat-card-content>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ag-grid-angular #grid [rowData]="rowData" [columnDefs]="columnDefs" class="ag-theme-material"
+                            (gridReady)="onGridReady($event)" [rowHeight]="38" [headerHeight]="40"
+                            [enableColResize]="true" [enableSorting]="true" [context]="context"
+                            [pagination]="true" [paginationPageSize]="10" [suppressCellSelection]="true"
+                            [frameworkComponents]="frameworkComponents" [rowSelection]="'multiple'"
+                            (rowSelected)="onRowSelected()" [suppressRowClickSelection]="true" domLayout="autoHeight">
+                        </ag-grid-angular>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

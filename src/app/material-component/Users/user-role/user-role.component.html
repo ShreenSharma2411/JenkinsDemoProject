@@ -1,0 +1,83 @@
+<div>
+    <div class="col-2">
+        <h3 class="page-title">{{titlePage}}</h3>
+    </div> 
+</div> 
+
+<div fxLayout="row">
+    <div fxFlex.gt-sm="100%">
+        <mat-card>
+            <mat-card-content>
+                    <li class="mat-form-field--inline">
+                        <mat-form-field appearance="outline">
+                                <mat-label>Role Name</mat-label>
+                            <input matInput placeholder="Role Name" [formControl]="rolename">
+                            <mat-error *ngIf="rolename.invalid">{{ErrorMessage()}}</mat-error>
+                            <mat-error *ngIf="rolename.hasError('required')">
+                                Role Name is <strong>required</strong></mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                                <mat-label>Display Name</mat-label>
+                            <input matInput placeholder="Display Name" [formControl]="dispname">
+                            <mat-error *ngIf="dispname.invalid">{{ErrorMsg()}}</mat-error>
+                            <mat-error *ngIf="dispname.hasError('required')">
+                                Display Name is <strong>required</strong></mat-error>
+                        </mat-form-field>
+                    </li>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+<div fxLayout="row">
+    <div fxFlex.gt-sm="100%">
+        <mat-card>
+            <mat-card-content>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h5>Add Permissions</h5>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <mat-card>
+                                    <mat-card-content>
+                                        <h5 class="permission">Actions</h5><br>
+                                        <div class="form-group">
+                                                <label for="exampleSelect2">Select Permissible Operations for the Role</label>
+                                                <mat-selection-list #role>
+                                                        <mat-list-option *ngFor="let role of rolelist">
+                                                               {{role}}
+                                                        </mat-list-option>
+                                                   </mat-selection-list>
+                                            </div>
+                                    </mat-card-content>
+                                </mat-card>
+                            </div>
+                            <div class="col-sm-6">
+                                <mat-card>
+                                    <mat-card-content>
+                                        <h5 class="permission">Modules</h5><br>
+                                        <div class="form-group">
+                                                <label for="exampleSelect2">Select Modules to make it accessible for the Role</label>
+                                                <mat-selection-list #module>
+                                                    <mat-list-option *ngFor="let module of modulelist">
+                                                           {{module}}
+                                                    </mat-list-option>
+                                               </mat-selection-list>
+                                            </div>
+                                    </mat-card-content>
+                                </mat-card>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <li class="mat-form-field--inline">
+                    <div class="col-sm-12">
+                        <div class="text-right">
+                            <button mat-raised-button color="primary" >Submit</button>
+                        </div>
+                    </div>
+                </li>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

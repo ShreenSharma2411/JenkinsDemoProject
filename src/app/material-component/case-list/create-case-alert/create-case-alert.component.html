@@ -1,0 +1,79 @@
+<div class="row mb-2">
+  <div class="col-2">
+    <h3 class="page-title">{{titlePage}}</h3>
+  </div>
+</div>
+<form [formGroup]="assetAssignForm" #formDir="ngForm" (ngSubmit)="submit()">
+  <div fxLayout="row">
+    <div fxFlex.gt-sm="100%">
+      <mat-card>
+        <mat-card-content>
+
+          <mat-card>
+            <mat-card-content>
+              <li class="mat-form-field--inline">
+                <mat-form-field appearance="outline">
+                  <mat-label>Case Description</mat-label>
+                  <input matInput placeholder="Description" formControlName="desc" id="desc"
+                    [ngClass]="{'has-error': (!desc.valid && desc.touched)}">
+                  <!-- <a placement="left" ngbPopover="Description is based on first alert selected" triggers="mouseenter:mouseleave" data-toggle="popover-hover"></a> -->
+                </mat-form-field>
+                <small>Description is based on first alert selected</small>
+
+                <mat-form-field appearance="outline">
+                  <mat-label>Priority</mat-label>
+                  <mat-select disableRipple id="priority" formControlName="priority" id="priority"
+                    [ngClass]="{'has-error': (!priority.valid && priority.touched)}">
+                    <mat-option value="2">High</mat-option>
+                    <mat-option value="3">Medium</mat-option>
+                    <mat-option value="3">Low</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </li>
+            </mat-card-content>
+          </mat-card>
+
+          <mat-card>
+            <mat-card-content>
+              <!-- <h6>Assigned Details</h6> -->
+
+              <asset-detail *ngFor="let value of assigneeParameters['controls']; let i=index;"
+                [assigneeParameter]="assigneeParameters['controls'][i]" [isView]="isView" [selectedIds]="selectedIds"
+                [assigneeNameList]="assigneeNameList" (remove)="removeParameter(i)">
+              </asset-detail>
+
+              <div>
+                <button [hidden]="isView" [disabled]="selectedIds.length == assigneeNameList.length"
+                  (click)="addParameter()" class="btn-icon addParameter" type="button"><i
+                    class="fa fa-plus-circle"></i>Add Assignee</button>
+              </div>
+            </mat-card-content>
+          </mat-card>&nbsp;
+          <div class="card-title">
+            <div class="col-sm-2">
+              <h6>Selected Alerts</h6>
+            </div>
+          </div>
+          <mat-card>
+            <mat-card-content>
+              <div class="row">
+                <div class="col-lg-12">
+                  <ag-grid-angular #grid [rowData]="rowData" [columnDefs]="columnDefs" class="ag-theme-material"
+                    (gridReady)="onGridReady($event)" [rowHeight]="38" [headerHeight]="40" [enableColResize]="true"
+                    [context]="context" [enableSorting]="true" [pagination]="true" [rowSelection]="'multiple'"
+                    [frameworkComponents]="frameworkComponents" [paginationPageSize]="10" [suppressCellSelection]="true"
+                    domLayout="autoHeight">
+                  </ag-grid-angular>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+
+          <li class="mat-form-field--inline">
+            <button (click)="assignAlert()" mat-raised-button color="primary">Submit</button>
+          </li>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</form>

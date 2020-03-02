@@ -1,0 +1,47 @@
+@import '../../../styles.scss';
+
+.col-2 {
+    margin-top:17px; 
+}
+.assignedto{
+   cursor: pointer;
+   height: 50px; 
+}
+    .option {
+        font-weight: 100;
+        display: block;
+        white-space: pre;
+        min-height: .2em;
+        padding: 0px 2px 1px;
+    }
+
+   :host /deep/ .ag-theme-material .ag-header-cell-resize::after {
+    border-right: 1px solid #cecece;
+    box-sizing: content-box;
+    content: "resize";
+    display: block;
+    height: 24px;
+    overflow: hidden;
+    text-indent: 8px;
+    width: 8px;
+}
+.mat-form-field--inline {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.mat-form-field--inline .mat-form-field {
+    display: inline-block;
+    width: 100%;
+    vertical-align: middle;
+}
+.mat-form-field--inline .mat-form-field:nth-child(n+1) {
+    margin-right: 10px;
+}
+.filter{
+    margin-left: 20px;
+}
+.btn{
+    padding: 2px;
+}
+

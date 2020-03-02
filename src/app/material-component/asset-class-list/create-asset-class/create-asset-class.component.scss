@@ -1,0 +1,29 @@
+@import '../../../../styles.scss';
+
+
+.modal-content {
+    padding-left: 7px;
+}
+.mat-form-field--inline {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.mat-form-field--inline .mat-form-field {
+    display: inline-block;
+    width: 100%;
+    vertical-align: middle;
+}
+
+.mat-form-field--inline .mat-form-field:nth-child(1) {
+    margin-right: 10px;
+}
+.mat-form-field--inline .mat-form-field:nth-child(2) {
+    margin-right: 10px;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #f89325;
+    border-color: #f89325;
+}

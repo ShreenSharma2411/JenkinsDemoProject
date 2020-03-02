@@ -1,0 +1,19 @@
+<div [formGroup]="assigneeParameter" class="row">
+
+    <div class="form-group col-sm-6">
+        <label for="">Assignee Name</label>
+        <select class="form-control" formControlName="assigneeId" class="form-control" id="assigneeId" [ngClass]="{'has-error': (!assigneeId.valid && assigneeId.touched)}">
+            <option *ngFor="let val of _assigneeNameList | uniqParam: selectedIds : assigneeId.value" [value]="val.userId">
+                {{val.userName}}
+            </option>
+        </select>
+    </div>
+    <div class="form-group col-sm-6">
+        <label>Comment</label>
+        <a (click)="handleRemove()" style="cursor: pointer" class="pull-right" [hidden]="isView">
+            <span class="text-danger"><i class="fa fa-minus-circle" aria-hidden="true"></i></span> Remove
+        </a>
+        <input type="text" formControlName="assigneeComment" class="form-control" id="assigneeComment" [ngClass]="{'has-error': (!assigneeComment.valid && assigneeComment.touched)}">
+    </div>
+
+</div>

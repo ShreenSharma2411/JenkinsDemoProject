@@ -1,0 +1,34 @@
+<div>
+    <div class="col-2">
+        <h3 class="page-title">{{titlePage}}</h3>
+    </div>
+    <div class="row">
+        <div class="offset-8 col-sm-2">
+            <div id="cus-search">
+                <input type="search" placeholder="Search" id="search" [(ngModel)]="searchString" (keyup)="onSearch()">
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <p></p>
+            <button mat-raised-button color="primary" (click)="addSites()"> Add New Site </button>
+        </div>
+    </div>
+</div>
+<div fxLayout="row">
+    <div fxFlex.gt-sm="100%">
+        <mat-card>
+            <mat-card-content>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ag-grid-angular #grid [rowData]="rowData |async" [columnDefs]="columnDefs" class="ag-theme-material" 
+            (gridReady)="onGridReady($event)" [rowHeight]="38" [headerHeight]="40" [enableColResize]="true" [enableSorting]="true"
+            [enableColResize]="true" [context]="context" [pagination]="true" [paginationPageSize]="20" 
+            [suppressCellSelection]="true" [frameworkComponents]="frameworkComponents" (rowSelected)="onRowSelected()" 
+            [rowSelection]="'multiple'" [suppressRowClickSelection]="true" domLayout="autoHeight">
+        </ag-grid-angular>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+@import '../../../../../styles.scss';
+
+.site{
+    height: 40px;
+    
+    margin-left: 900px; 
+    color: white ;
+    background-color: $topbarClr;
+    box-shadow: 0px !important;
+    font-family: 'Times New Roman', Times, serif;
+}

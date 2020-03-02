@@ -1,0 +1,80 @@
+<p-menubar class="list-horizontal" [model]="items"></p-menubar>
+
+
+<button class="site" mat-button [matMenuTriggerFor]="sites" > Sites <mat-icon>keyboard_arrow_down</mat-icon></button>
+<mat-menu #sites="matMenu">
+  <!-- <button mat-menu-item>Education</button>
+  <button mat-menu-item>Job</button> -->
+  <button mat-menu-item *ngFor="let list of siteList" [value]="list.value">{{list.siteName}}</button>
+</mat-menu>
+
+
+
+
+
+
+
+
+
+
+<!-- <mat-nav-list class="list-horizontal">
+ 
+  <mat-list-item>
+      <a (click)="alerts()">Alerts</a>
+  </mat-list-item>
+  <mat-list-item>
+      <a (click)="cases()">Cases</a>
+  </mat-list-item>
+  <mat-list-item>
+      <a (click)="sites()">Sites</a>
+  </mat-list-item>
+  <mat-list-item>
+      <a (click)="contact()">Settings</a>
+  </mat-list-item>
+  <mat-list-item>
+      <a (click)="users()">Users</a>
+  </mat-list-item>
+  <mat-list-item>
+      <a (click)="roleList()">Roles</a>
+  </mat-list-item>
+</mat-nav-list> -->
+
+
+
+
+
+
+
+
+
+
+<!-- 
+           <div fxFlex fxLayout fxLayoutAlign="flex-end"  fxHide.xs>
+                <span  class="label">Login</span>
+              <ul fxLayout fxLayoutGap="35px" class="navigation-items dropdown-menu">
+                    <li><a href="#">HTML</a></li>
+                    <li><a href="#">CSS</a></li>
+                    <li><a href="#">JavaScript</a></li>
+                  <li>
+
+                    <a>
+        
+                        <span class="label">Home</span>
+                    </a>
+                  </li>
+                  <li>
+                      <a>
+                          
+                          <span class="label">Dashboard</span>
+                      </a>
+                    </li>
+                  <li>
+                      <a>
+        
+                        <span class="label">LogOut</span>
+                       </a>
+                  </li>
+              </ul>
+           </div>
+          -->
+      
